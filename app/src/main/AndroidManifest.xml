@@ -9,9 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EditActivity"
+        <activity android:name=".activity.DetailActivity"
             android:theme="@style/Useles"></activity>
-        <activity android:name=".activity.LoginActivity" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/Useles" />
+        <activity
+            android:name=".activity.EditActivity"
+            android:theme="@style/Useles" />
+        <activity
+            android:name=".activity.RegsitrasiActivity"
+            android:theme="@style/Useles" />
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/Useles" />
