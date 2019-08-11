@@ -54,6 +54,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="20dp"/>
             <TextView
+                android:id="@+id/tv_judul_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Judul"
@@ -63,15 +64,15 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="20dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"
-                android:textSize="18sp"
-                android:textColor="#000"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="20dp"/>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"-->
+                <!--android:textSize="18sp"-->
+                <!--android:textColor="#000"-->
+                <!--android:layout_marginLeft="16dp"-->
+                <!--android:layout_marginRight="16dp"-->
+                <!--android:layout_marginTop="20dp"/>-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -91,21 +92,39 @@
                     android:id="@+id/jPukul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pukul      :"
+                    android:text="Pukul         :"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#000"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="20dp"/>
+
                 <TextView
-                    android:id="@+id/pukul"
-                    android:layout_width="match_parent"
+                    android:id="@+id/pukul_mulai"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12:00 - Selesai"
+                    android:text="12:00"
                     android:textSize="18sp"
                     android:textColor="#000"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/pukul_selesai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:00"
+                    android:textSize="18sp"
+                    android:textColor="#000"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="20dp"/>
             </LinearLayout>
@@ -117,7 +136,7 @@
                     android:id="@+id/jTanggal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tanggal  :"
+                    android:text="Tanggal     :"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="#000"
@@ -125,10 +144,64 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="20dp"/>
                 <TextView
-                    android:id="@+id/tanggal"
+                    android:id="@+id/tanggal_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="10/02/1998"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="20dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tempat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tempat      :"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="20dp"/>
+                <TextView
+                    android:id="@+id/tempat_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tempatnya"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="20dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/asal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="16dp"
+                    android:text="Asal Surat :"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/asalsurat_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Asalnya"
                     android:textSize="18sp"
                     android:textColor="#000"
                     android:layout_marginLeft="16dp"

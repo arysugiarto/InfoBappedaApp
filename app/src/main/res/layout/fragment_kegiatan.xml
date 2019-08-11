@@ -40,22 +40,20 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <!--<androidx.recyclerview.widget.RecyclerView-->
-        <!--android:id="@+id/rv_kamar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:scrollbars="vertical"-->
-        <!--tools:listitem="@layout/item_list">-->
-
-    <!--</androidx.recyclerview.widget.RecyclerView>-->
-    <include
-        layout="@layout/item_list"/>
-    <include
-        layout="@layout/item_list"/>
-    <include
-        layout="@layout/item_list"/>
-    <include
-        layout="@layout/item_list"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_kegiatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/item_list">
+    </androidx.recyclerview.widget.RecyclerView>
+    <!--<include-->
+        <!--layout="@layout/item_list"/>-->
+    <!--<include-->
+        <!--layout="@layout/item_list"/>-->
+    <!--<include-->
+        <!--layout="@layout/item_list"/>-->
+    <!--<include-->
+        <!--layout="@layout/item_list"/>-->
 
 </LinearLayout>
