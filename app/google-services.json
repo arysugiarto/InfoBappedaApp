@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1085576595596",
+    "firebase_url": "https://infobappedaapps.firebaseio.com",
+    "project_id": "infobappedaapps",
+    "storage_bucket": "infobappedaapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085576595596:android:3a88547b650a4b40",
+        "android_client_info": {
+          "package_name": "com.bappedajabar.infobapedda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085576595596-d6fc7tthdcljka0p85nms8mp92hjnjjj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bappedajabar.infobapedda",
+            "certificate_hash": "56769c45606fb1d353cd08393a950abe16e1de5d"
+          }
+        },
+        {
+          "client_id": "1085576595596-0t08toj6kpds6otnphh58b85qfh0l6ga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtxGNz2YC3uemiy0gMbaNRaTjqGaW_he4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085576595596-0t08toj6kpds6otnphh58b85qfh0l6ga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

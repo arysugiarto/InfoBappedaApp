@@ -26,6 +26,19 @@
             android:layout_gravity="center"
             android:text="Profile"
             android:textColor="@color/white" />
+        <ImageButton
+            android:id="@+id/ig_logout"
+            android:layout_height = "wrap_content"
+            android:layout_width = "wrap_content"
+            android:text = "My button"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_round_exit_to_app_24px"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_gravity = "right"
+            tools:ignore="OnClick" />
 
     </androidx.appcompat.widget.Toolbar>
     <LinearLayout
@@ -45,6 +58,7 @@
             android:text="NIP"/>
 
         <TextView
+            android:id="@+id/nipProfile"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,6 +86,7 @@
             android:text="NAMA"/>
 
         <TextView
+            android:id="@+id/namaProfile"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,6 +114,7 @@
             android:text="EMAIL"/>
 
         <TextView
+            android:id="@+id/emailProfile"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,6 +142,7 @@
             android:text="NO TELEPON"/>
 
         <TextView
+            android:id="@+id/noProfile"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
