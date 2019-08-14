@@ -13,6 +13,7 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 
 import com.bappedajabar.infobapeddapp.R;
+import com.bappedajabar.infobapeddapp.activity.DetailActivity;
 import com.bappedajabar.infobapeddapp.activity.MainActivity;
 import com.bappedajabar.infobapeddapp.rest.SessionManager;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -77,7 +78,7 @@ public class MyFirebaseMessagingServices extends FirebaseMessagingService {
 
     private Intent sendMessage(String activity, Intent intent , RemoteMessage remoteMessage){
         if(activity.equals("KEGIATANACTIVITY")){
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, DetailActivity.class);
             intent.putExtra("id_kegiatan",remoteMessage.getData().get("id_kegiatan"));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         }
