@@ -26,17 +26,17 @@
             android:layout_gravity="center"
             android:text="Pengumuman"
             android:textColor="@color/white" />
-        <ImageButton
-            android:layout_height = "wrap_content"
-            android:layout_width = "wrap_content"
-            android:text = "My button"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/ic_notifications_black_24dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_gravity = "right" />
+        <!--<ImageButton-->
+            <!--android:layout_height = "wrap_content"-->
+            <!--android:layout_width = "wrap_content"-->
+            <!--android:text = "My button"-->
+            <!--android:backgroundTint="@color/colorPrimary"-->
+            <!--android:layout_marginRight="16dp"-->
+            <!--android:src="@drawable/ic_notifications_black_24dp"-->
+            <!--android:foreground="?android:attr/selectableItemBackground"-->
+            <!--android:clickable="true"-->
+            <!--android:focusable="true"-->
+            <!--android:layout_gravity = "right" />-->
 
     </androidx.appcompat.widget.Toolbar>
 

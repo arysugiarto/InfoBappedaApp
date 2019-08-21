@@ -4,16 +4,20 @@ import com.bappedajabar.infobapeddapp.model.GetKegiatan;
 import com.bappedajabar.infobapeddapp.model.Login;
 import com.bappedajabar.infobapeddapp.model.Registrasi;
 import com.bappedajabar.infobapeddapp.model.User;
+import com.bappedajabar.infobapeddapp.model.UserRespon;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public interface ApiInterface {
     @GET("Kegiatan/datakegiatan")
     Call<GetKegiatan> getKegiatan();
+    @GET("Kegiatan/limit")
+    Call<GetKegiatan> getPrestasiLimit();
 
 
     @FormUrlEncoded
@@ -38,7 +42,14 @@ public interface ApiInterface {
             @Field("password") String password
     );
 
-
-
+    @FormUrlEncoded
+    @PUT("User/userupdate")
+    Call<UserRespon> update(
+            @Field("id_user") String id_user,
+            @Field("nip") String nip,
+            @Field("nama") String nama,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("no_hp") String no_hp);
 
 }

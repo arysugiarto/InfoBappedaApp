@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bappedajabar.infobapeddapp.R;
 import com.bappedajabar.infobapeddapp.activity.DetailActivity;
 import com.bappedajabar.infobapeddapp.fragment.HomeFragment;
-import com.bappedajabar.infobapeddapp.fragment.KegiatanFragment;
 import com.bappedajabar.infobapeddapp.model.Kegiatan;
 
 import java.util.List;
@@ -22,15 +21,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class KegiatanAdapter extends RecyclerView.Adapter<KegiatanAdapter.ListViewHolder> {
-    private KegiatanFragment mContext;
+public class KegiatanAdapterHome extends RecyclerView.Adapter<KegiatanAdapterHome.ListViewHolder> {
+    private HomeFragment mContext;
     private Context context;
     private List<Kegiatan> kegiatanList;
 
-    public KegiatanAdapter(KegiatanFragment kegiatanFragment, List<Kegiatan> kegiatanList) {
-        this.mContext = mContext;
-        this.kegiatanList = kegiatanList;
-    }
 
     public List<Kegiatan> getKegiatanList() {
         return kegiatanList;
@@ -40,22 +35,22 @@ public class KegiatanAdapter extends RecyclerView.Adapter<KegiatanAdapter.ListVi
         this.kegiatanList = kegiatanList;
     }
 
-    public KegiatanAdapter(FragmentActivity activity) {
+    public KegiatanAdapterHome(FragmentActivity activity) {
         this.context = activity;
     }
 
 
-    public KegiatanAdapter(HomeFragment homeFragment, List<Kegiatan> kegiatanList){
+    public KegiatanAdapterHome(HomeFragment homeFragment, List<Kegiatan> kegiatanList){
         this.kegiatanList = kegiatanList;
     }
     @Override
-    public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
-        return new ListViewHolder(view);
+    public KegiatanAdapterHome.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list2, parent, false);
+        return new KegiatanAdapterHome.ListViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull KegiatanAdapter.ListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
         final Kegiatan p = getKegiatanList().get(position);
         holder.tvId.setText(p.getNamaKegiatan());
         holder.tvTanggal.setText(p.getTanggal());

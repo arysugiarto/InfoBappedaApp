@@ -32,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     String refreshFlag = "0";
 
+    private TextView mTextMessage;
+    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
+    private long mBackPressed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextNip = findViewById(R.id.usernameLogin);
         editTextPassword = findViewById(R.id.passwordLogin);
         progressDialog = new ProgressDialog(this);
+
         sessionManager = new SessionManager(getApplicationContext());
 
         editTextPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -83,6 +88,19 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
+        {
+            super.onBackPressed();
+            return;
+        }
+        else { Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show(); }
+
+        mBackPressed = System.currentTimeMillis();
+    }
+
     private void login(){
         progressDialog.setMessage("Loading..");
         progressDialog.setCancelable(false);
@@ -99,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 String nama = response.body().getResponse();
 
-
+                String id_user = String.valueOf(response.body().getDataUser().getIdUser());
                 String username = response.body().getDataUser().getNama();
                 String nip = response.body().getDataUser().getNip();
                 String email = response.body().getDataUser().getEmail();
@@ -108,14 +126,14 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e("Respone",nama);
 
                 if (nama.equals("sukses")){
-
+                    sessionManager.createID(id_user);
                     sessionManager.createSession(nama);
                     sessionManager.createNip(nip);
                     sessionManager.createNohp(nohp);
                     sessionManager.createEmail(email);
                     sessionManager.createUsername(username);
-
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    finish();
                     startActivity(intent);
                 }
                 else {

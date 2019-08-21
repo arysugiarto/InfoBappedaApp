@@ -48,12 +48,12 @@ public class SessionManager {
 
     public void checkLogin(){
         if(!this.is_login()){
-            Intent i = new Intent(_context,MainActivity.class);
+            Intent i = new Intent(_context,LoginActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             _context.startActivity(i);
         }else{
-            Intent i = new Intent(_context, LoginActivity.class);
+            Intent i = new Intent(_context, MainActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             _context.startActivity(i);
@@ -71,6 +71,12 @@ public class SessionManager {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         _context.startActivity(intent);
+    }
+
+    public void logOut() {
+        editor = pref.edit();
+        editor.putBoolean(IS_LOGIN, false);
+        editor.apply();
     }
 //    public String getUsername(){
 //
@@ -96,10 +102,7 @@ public class SessionManager {
 
         editor.commit();
     }
-    public void createIdAcara(String id_kegiatan){
-        editor.putString(ID_KEGIATAN,id_kegiatan);
-        editor.commit();
-    }
+
 
     public void createEmail(String email){
         editor.putString(EMAIL, email);
@@ -123,5 +126,13 @@ public class SessionManager {
         editor.putString(USERNAME, username);
         editor.commit();
 
+    }
+    public void createID(String id_user){
+        editor.putString(ID_USER, "");
+        editor.commit();
+
+    }
+    public String getIdUSer(){
+        return pref.getString(ID_USER,"");
     }
 }

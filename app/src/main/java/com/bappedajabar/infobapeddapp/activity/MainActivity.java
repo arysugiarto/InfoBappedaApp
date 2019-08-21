@@ -8,6 +8,7 @@ import com.bappedajabar.infobapeddapp.R;
 import com.bappedajabar.infobapeddapp.fragment.HomeFragment;
 import com.bappedajabar.infobapeddapp.fragment.KegiatanFragment;
 import com.bappedajabar.infobapeddapp.fragment.ProfileFragment;
+import com.bappedajabar.infobapeddapp.rest.SessionManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.messaging.FirebaseMessaging;
 //import com.google.firebase.messaging.FirebaseMessaging;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
 
-
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             int endColor = ContextCompat.getColor(MainActivity.this, R.color.colorPrimary);
             ObjectAnimator.ofArgb(getWindow(), "statusBarColor", startColor, endColor).start();
         }
+
+        sessionManager = new SessionManager(MainActivity.this);
 
         FirebaseMessaging.getInstance().subscribeToTopic("aca");
 

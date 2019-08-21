@@ -47,6 +47,7 @@
             android:text="NIP"/>
 
         <EditText
+            android:id="@+id/nipEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -64,6 +65,7 @@
             android:text="NAMA"/>
 
         <EditText
+            android:id="@+id/namaEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -81,6 +83,7 @@
             android:text="PASSWORD"/>
 
         <EditText
+            android:id="@+id/passwordEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -98,6 +101,7 @@
             android:text="EMAIL"/>
 
         <EditText
+            android:id="@+id/emailEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
@@ -115,12 +119,14 @@
             android:text="NO TELEPON"/>
 
         <EditText
+            android:id="@+id/teleponEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             />
         <Button
+            android:id="@+id/btnEdit"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

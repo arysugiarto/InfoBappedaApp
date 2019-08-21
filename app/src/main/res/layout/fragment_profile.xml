@@ -33,7 +33,7 @@
             android:text = "My button"
             android:backgroundTint="@color/colorPrimary"
             android:layout_marginRight="16dp"
-            android:src="@drawable/ic_round_exit_to_app_24px"
+            android:src="@drawable/ic_info_outline_black_24dp"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
@@ -44,7 +44,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:gravity="right"
+        android:layout_marginRight="29dp">
+        <ImageView
+            android:id="@+id/imgEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_path_292"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
@@ -163,7 +175,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/btnEdit"
+            android:id="@+id/btnLogout"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -172,7 +184,7 @@
             android:background="@drawable/btn_editprofile"
             android:textColor="@color/white"
             android:textAllCaps="false"
-            android:text="Edit Profile"
+            android:text="Log Out"
             tools:ignore="OnClick" />
     </LinearLayout>
 

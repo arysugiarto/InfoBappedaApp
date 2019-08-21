@@ -14,15 +14,17 @@ import android.widget.TextView;
 
 import com.bappedajabar.infobapeddapp.R;
 import com.bappedajabar.infobapeddapp.activity.EditActivity;
+import com.bappedajabar.infobapeddapp.activity.LoginActivity;
+import com.bappedajabar.infobapeddapp.activity.MainActivity;
 import com.bappedajabar.infobapeddapp.rest.SessionManager;
 
 import java.util.HashMap;
 
 public class ProfileFragment extends Fragment {
 
-    private Button btnEdit;
+    private Button btnKeluar;
     TextView txt_nip,txt_nama,txt_email,txt_hp;
-    ImageView imgkeluar;
+    ImageView imgEdit;
 
     SessionManager sessionManager;
     public ProfileFragment() {
@@ -34,27 +36,30 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_profile, container, false);
         // Inflate the layout for this fragment
-        btnEdit = view.findViewById(R.id.btnEdit);
+        btnKeluar = view.findViewById(R.id.btnLogout);
 
         txt_nip = view.findViewById(R.id.nipProfile);
         txt_nama = view.findViewById(R.id.namaProfile);
         txt_email = view.findViewById(R.id.emailProfile);
         txt_hp = view.findViewById(R.id.noProfile);
-        imgkeluar = view.findViewById(R.id.ig_logout);
+        imgEdit = view.findViewById(R.id.imgEdit);
 
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+        btnKeluar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sessionManager.logOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                getActivity().finish();
+                startActivity(intent);
+            }
+        });
+
+        imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent edit = new Intent(ProfileFragment.this.getActivity(), EditActivity.class);
                 startActivity(edit);
-            }
-        });
-
-        imgkeluar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sessionManager.logout();
             }
         });
 

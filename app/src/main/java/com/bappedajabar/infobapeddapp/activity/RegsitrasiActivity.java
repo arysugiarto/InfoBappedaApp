@@ -45,29 +45,25 @@ public class RegsitrasiActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
 
-        buttonSign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        buttonSign.setOnClickListener(view -> {
 
 
-                if(editTextNip.getText().toString().length()==0){
-                    editTextNip.setError("NIP tidak boleh kosong!");
-                }else if(editTextPassword.getText().toString().length()==0){
-                    editTextPassword.setError("Password tidak boleh kosong!");
-                }else if(editTextNama.getText().toString().length()==0){
-                    editTextNama.setError("Nama tidak boleh kosong!");
-                } else if(editTextEmail.getText().toString().length()==0){
-                    editTextEmail.setError("Email tidak boleh kosong!");
-                } else if(editTextNoHp.getText().toString().length()==0){
-                    editTextNoHp.setError("No Hp tidak boleh kosong!");
-                }
-                else {
-                    regis();
-                    Toast.makeText(getApplicationContext(), "Login Berhasil!",
-                            Toast.LENGTH_SHORT).show();
-                }
-
-        }
+            if(editTextNip.getText().toString().length()==0){
+                editTextNip.setError("NIP tidak boleh kosong!");
+            }else if(editTextPassword.getText().toString().length()==0){
+                editTextPassword.setError("Password tidak boleh kosong!");
+            }else if(editTextNama.getText().toString().length()==0){
+                editTextNama.setError("Nama tidak boleh kosong!");
+            } else if(editTextEmail.getText().toString().length()==0){
+                editTextEmail.setError("Email tidak boleh kosong!");
+            } else if(editTextNoHp.getText().toString().length()==0){
+                editTextNoHp.setError("No Hp tidak boleh kosong!");
+            }
+            else {
+                regis();
+                Toast.makeText(getApplicationContext(), "Login Berhasil!",
+                        Toast.LENGTH_SHORT).show();
+            }
 
     });
     }

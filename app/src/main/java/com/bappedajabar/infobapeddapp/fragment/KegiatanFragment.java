@@ -33,6 +33,7 @@ public class KegiatanFragment extends Fragment {
 
     TextView readMore;
     private RecyclerView rvKegiatan;
+
     private KegiatanAdapter adapter;
     private List<Kegiatan> kegiatanList;
 
