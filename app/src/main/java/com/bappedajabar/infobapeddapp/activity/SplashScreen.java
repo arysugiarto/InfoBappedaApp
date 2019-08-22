@@ -26,7 +26,7 @@ public class SplashScreen extends AppCompatActivity {
 //            Toast.makeText(SplashScreen.this,"Welcome", Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_splash_screen);
             sessionManager = new SessionManager(getApplicationContext());
-//          sessionManager.getUser();
+            sessionManager.getIdUSer();
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -34,7 +34,7 @@ public class SplashScreen extends AppCompatActivity {
                     sessionManager.checkLogin();
                     finish();
                 }
-            }, 5000);
+            }, 3000);
         }
     }
 

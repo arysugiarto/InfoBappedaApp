@@ -64,14 +64,7 @@ public class SessionManager {
         return pref.getBoolean(IS_LOGIN,false);
     }
 
-    public void logout(){
-        editor.clear();
-        editor.commit();
-        Intent intent = new Intent(_context, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        _context.startActivity(intent);
-    }
+
 
     public void logOut() {
         editor = pref.edit();
@@ -90,6 +83,7 @@ public class SessionManager {
         user.put(LOGIN_TYPE,pref.getString(LOGIN_TYPE,null));
         user.put(ID_USER,pref.getString(ID_USER, null));
         user.put(EMAIL,pref.getString(EMAIL, null));
+        user.put(PASSWORD,pref.getString(PASSWORD,null));
         user.put(NIP,pref.getString(NIP, null));
         user.put(NO_HP,pref.getString(NO_HP, null));
         return user;
@@ -106,6 +100,11 @@ public class SessionManager {
 
     public void createEmail(String email){
         editor.putString(EMAIL, email);
+        editor.commit();
+
+    }
+    public void createPassword(String password){
+        editor.putString(PASSWORD, password);
         editor.commit();
 
     }
@@ -128,7 +127,7 @@ public class SessionManager {
 
     }
     public void createID(String id_user){
-        editor.putString(ID_USER, "");
+        editor.putString(ID_USER, id_user);
         editor.commit();
 
     }

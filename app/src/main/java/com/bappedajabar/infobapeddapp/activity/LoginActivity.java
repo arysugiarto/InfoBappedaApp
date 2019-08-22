@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
-        else { Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show(); }
+        else { Toast.makeText(getBaseContext(), "Tap button back untuk keluar", Toast.LENGTH_SHORT).show(); }
 
         mBackPressed = System.currentTimeMillis();
     }
@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                 String nama = response.body().getResponse();
 
                 String id_user = String.valueOf(response.body().getDataUser().getIdUser());
+                String password = String.valueOf(response.body().getDataUser().getPassword());
                 String username = response.body().getDataUser().getNama();
                 String nip = response.body().getDataUser().getNip();
                 String email = response.body().getDataUser().getEmail();
@@ -129,6 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                     sessionManager.createID(id_user);
                     sessionManager.createSession(nama);
                     sessionManager.createNip(nip);
+                    sessionManager.createPassword(password);
                     sessionManager.createNohp(nohp);
                     sessionManager.createEmail(email);
                     sessionManager.createUsername(username);

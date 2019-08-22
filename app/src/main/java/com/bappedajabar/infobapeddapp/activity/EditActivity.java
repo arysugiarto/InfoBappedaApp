@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bappedajabar.infobapeddapp.R;
+import com.bappedajabar.infobapeddapp.fragment.ProfileFragment;
 import com.bappedajabar.infobapeddapp.model.Registrasi;
 import com.bappedajabar.infobapeddapp.model.User;
 import com.bappedajabar.infobapeddapp.model.UserRespon;
@@ -52,7 +53,7 @@ public class EditActivity extends AppCompatActivity {
         editTextNoHp = findViewById(R.id.teleponEdt);
 
         buttonEdit = findViewById(R.id.btnEdit);
-//        progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
 
         sessionManager = new SessionManager(EditActivity.this);
         HashMap<String, String> user = sessionManager.getUserDetils();
@@ -76,13 +77,26 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
+        sessionManager = new SessionManager(EditActivity.this);
+        HashMap<String, String> users = sessionManager.getUserDetils();
+        String username = user.get(SessionManager.USERNAME);
+        String nip = users.get(SessionManager.NIP);
+        String email = users.get(SessionManager.EMAIL);
+        String no_hp = users.get(SessionManager.NO_HP);
+        String password = user.get(SessionManager.PASSWORD);
+        editTextNama.setText(username);
+        editTextNip.setText(nip);
+        editTextEmail.setText(email);
+        editTextPassword.setText(password);
+        editTextNoHp.setText(no_hp);
+
     }
 
     private void update(){
-//        progressDialog.setMessage("Loading..");
-//        progressDialog.setCancelable(false);
-//        progressDialog.show();
-//        refreshFlag = "1";
+        progressDialog.setMessage("Loading..");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+        refreshFlag = "1";
 
         String nip = editTextNip.getText().toString();
         String nama = editTextNama.getText().toString();
@@ -98,15 +112,17 @@ public class EditActivity extends AppCompatActivity {
         postItem.enqueue(new Callback<UserRespon>() {
             @Override
             public void onResponse(Call<UserRespon> call, Response<UserRespon> response) {
-//                progressDialog.hide();
+                progressDialog.hide();
                 String status = response.body().getMessage();
-                Log.e("klnald", response.body().getMessage());
+                Log.e("test", response.body().getMessage());
                 User user = response.body().getData();
                 Log.e("user", user.getNip());
                 Log.e("status", status);
 
                 if (status.equals("sukses")) {
                     Toast.makeText(EditActivity.this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(EditActivity.this,ProfileFragment.class);
+//                    startActivity(intent);
                 } else {
                     Toast.makeText(EditActivity.this, "Data gagal disimpan", Toast.LENGTH_SHORT).show();
                 }
@@ -115,12 +131,13 @@ public class EditActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserRespon> call, Throwable t) {
-                    Log.e("Failure",t.getMessage()
-                    );
+                    Log.e("Failure",t.getMessage());
             }
 
         });
     }
+
+
 
 
 }
