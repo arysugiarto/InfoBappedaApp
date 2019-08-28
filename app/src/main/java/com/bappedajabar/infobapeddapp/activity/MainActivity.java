@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
 
+
     SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

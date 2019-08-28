@@ -54,6 +54,9 @@ dependencies {
     implementation 'com.squareup.okhttp:okhttp:2.6.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
 
+//    ripple effect library
+    implementation 'com.balysv:material-ripple:1.0.2'
+
 
 //    implementation "androidx.core:core-ktx:+"
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

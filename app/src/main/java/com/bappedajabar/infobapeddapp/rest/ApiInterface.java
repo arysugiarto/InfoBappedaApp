@@ -17,7 +17,7 @@ public interface ApiInterface {
     @GET("Kegiatan/datakegiatan")
     Call<GetKegiatan> getKegiatan();
     @GET("Kegiatan/limit")
-    Call<GetKegiatan> getPrestasiLimit();
+    Call<GetKegiatan> getKegiatanLimit();
 
 
     @FormUrlEncoded
@@ -51,5 +51,12 @@ public interface ApiInterface {
             @Field("email") String email,
             @Field("password") String password,
             @Field("no_hp") String no_hp);
+
+
+    @FormUrlEncoded
+    @PUT("user/token")
+    Call<UserRespon> token(
+            @Field("id_user") String id_user,
+            @Field("token") String token);
 
 }

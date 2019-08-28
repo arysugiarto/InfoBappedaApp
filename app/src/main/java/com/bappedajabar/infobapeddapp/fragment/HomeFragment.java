@@ -1,12 +1,16 @@
 package com.bappedajabar.infobapeddapp.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +18,22 @@ import android.widget.ImageView;
 
 import com.bappedajabar.infobapeddapp.R;
 import com.bappedajabar.infobapeddapp.activity.DetailActivity;
+import com.bappedajabar.infobapeddapp.activity.EditActivity;
 import com.bappedajabar.infobapeddapp.adapter.KegiatanAdapter;
 import com.bappedajabar.infobapeddapp.adapter.KegiatanAdapterHome;
 import com.bappedajabar.infobapeddapp.model.GetKegiatan;
 import com.bappedajabar.infobapeddapp.model.Kegiatan;
+import com.bappedajabar.infobapeddapp.model.UserRespon;
 import com.bappedajabar.infobapeddapp.rest.Api;
 import com.bappedajabar.infobapeddapp.rest.ApiInterface;
 import com.bappedajabar.infobapeddapp.rest.ItemClickSupport;
+import com.bappedajabar.infobapeddapp.rest.SessionManager;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,9 +41,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
+
 public class HomeFragment extends Fragment {
 
     private RecyclerView rvKegiatan;
+    String token;
+    SessionManager sessionManager;
+
 
     private KegiatanAdapter adapter;
     private List<Kegiatan> kegiatanList;
@@ -48,6 +61,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
@@ -58,14 +73,22 @@ public class HomeFragment extends Fragment {
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
 
+        token = FirebaseInstanceId.getInstance().getToken();
+        Log.e("TOKEN ",token);
+
 
         kegiatanList = new ArrayList<>();
         adapter = new KegiatanAdapter(this, kegiatanList);
+
+        sessionManager = new SessionManager(getContext());
 
         rvKegiatan = view.findViewById(R.id.rv_terbaru);
         rvKegiatan.setHasFixedSize(true);
         rvKegiatan.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         getData();
+        updateToken(token);
+
+
         return view;
     }
 
@@ -78,10 +101,28 @@ public class HomeFragment extends Fragment {
         }
     };
 
+    private void updateToken(String token){
+
+        ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
+        Call<UserRespon> call = apiInterface.token(sessionManager.getIdUSer(),token);
+        call.enqueue(new Callback<UserRespon>() {
+            @Override
+            public void onResponse(Call<UserRespon> call, Response<UserRespon> response) {
+                String message = response.body().getMessage();
+                Log.e("UPDATE TOKEN",message);
+            }
+
+            @Override
+            public void onFailure(Call<UserRespon> call, Throwable t) {
+                Log.e("UPDATE TOKEN",t.getMessage());
+            }
+        });
+    }
+
     private void getData(){
         final KegiatanAdapter kegiatanAdapter = new KegiatanAdapter(this.getActivity());
         ApiInterface apiInterface = Api.getUrl().create(ApiInterface.class);
-        Call<GetKegiatan> call = apiInterface.getPrestasiLimit();
+        Call<GetKegiatan> call = apiInterface.getKegiatanLimit();
 
         call.enqueue(new Callback<GetKegiatan>() {
             @Override

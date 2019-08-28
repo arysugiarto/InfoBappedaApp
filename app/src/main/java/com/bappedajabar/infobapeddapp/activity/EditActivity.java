@@ -107,6 +107,7 @@ public class EditActivity extends AppCompatActivity {
 
         HashMap<String, String> user = sessionManager.getUserDetils();
         String id = user.get(SessionManager.ID_USER);
+
         ApiInterface api = ApiUrl.getClient().create(ApiInterface.class);
         Call<UserRespon> postItem = api.update(id,nip,nama,email,password,no_hp);
         postItem.enqueue(new Callback<UserRespon>() {

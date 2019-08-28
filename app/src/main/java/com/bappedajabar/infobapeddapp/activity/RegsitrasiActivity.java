@@ -61,8 +61,8 @@ public class RegsitrasiActivity extends AppCompatActivity {
             }
             else {
                 regis();
-                Toast.makeText(getApplicationContext(), "Login Berhasil!",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Login Berhasil!",
+//                        Toast.LENGTH_SHORT).show();
             }
 
     });

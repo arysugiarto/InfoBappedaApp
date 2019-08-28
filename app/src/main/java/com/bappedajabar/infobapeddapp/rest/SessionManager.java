@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.bappedajabar.infobapeddapp.activity.LoginActivity;
 import com.bappedajabar.infobapeddapp.activity.MainActivity;
+import com.bappedajabar.infobapeddapp.fragment.HomeFragment;
 import com.bappedajabar.infobapeddapp.fragment.ProfileFragment;
 import com.bappedajabar.infobapeddapp.model.User;
 
@@ -41,7 +42,7 @@ public class SessionManager {
         editor = pref.edit();
     }
 
-    public SessionManager(ProfileFragment profileFragment) {
+    public SessionManager(HomeFragment profileFragment) {
 
     }
 
@@ -78,7 +79,6 @@ public class SessionManager {
     public HashMap<String, String> getUserDetils(){
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(USERNAME, pref.getString(USERNAME, null));
-
 //        this.getUser();
         user.put(LOGIN_TYPE,pref.getString(LOGIN_TYPE,null));
         user.put(ID_USER,pref.getString(ID_USER, null));
@@ -89,6 +89,7 @@ public class SessionManager {
         return user;
 
     }
+
 
     public void createSession(String nama) {
         editor.putBoolean(IS_LOGIN,true);

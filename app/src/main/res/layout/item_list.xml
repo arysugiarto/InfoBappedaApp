@@ -5,13 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     android:layout_gravity="center"
     android:layout_marginLeft="8dp"
     android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:elevation="10dp"
+    android:background="@drawable/ripple_effect"
     card_view:cardCornerRadius="4dp"
     card_view:cardElevation="3dp">
 
@@ -85,17 +89,17 @@
             <!--android:text="Dalam rangka peringatan hari Sumpah Pemuda, akan diadakan beberapa kegiatan. "-->
             <!--android:textColor="#363636" />-->
 
-            <TextView
-                android:id="@+id/tv_readmore"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_jam"
-                android:text="Show more... "
-                android:gravity="right"
-                android:layout_marginBottom="3dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="20dp"
-                android:textColor="#0a434c" />
+<!--            <TextView-->
+<!--                android:id="@+id/tv_readmore"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/tv_jam"-->
+<!--                android:text="Show more... "-->
+<!--                android:gravity="right"-->
+<!--                android:layout_marginBottom="3dp"-->
+<!--                android:layout_marginLeft="8dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:textColor="#0a434c" />-->
 
         </RelativeLayout>
     </LinearLayout>
