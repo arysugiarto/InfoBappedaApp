@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiUrl {
-        public static String BASE_URL ="http://10.13.2.9/InfoBappedaWeb/api/";
+        public static String BASE_URL ="http://192.168.137.1/InfoBappedaWeb/api/";
 
 
     private static Retrofit retrofit;
